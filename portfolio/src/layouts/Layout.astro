@@ -1,0 +1,125 @@
+---
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  canonicalURL?: string;
+  lang?: string;
+}
+
+const {
+  title,
+  description,
+  ogImage = '/images/og-image.svg',
+  canonicalURL = Astro.url.pathname,
+  lang = 'en'
+} = Astro.props;
+
+const isItalian = lang === 'it';
+const currentPath = Astro.url.pathname;
+
+const fullTitle = title ? `${title}` : (isItalian ? 'Cris - UX Designer a Zurigo' : 'Cris - UX Designer based in Zürich');
+const siteURL = Astro.site || 'https://effe-ci.github.io';
+const fullCanonicalURL = new URL(canonicalURL, siteURL).href;
+const fullOgImage = new URL(ogImage, siteURL).href;
+
+// Hreflang URLs
+const enURL = isItalian ? fullCanonicalURL.replace('/it/', '/').replace('/it', '') : fullCanonicalURL;
+const itURL = isItalian ? fullCanonicalURL : fullCanonicalURL.replace(siteURL, `${siteURL}/it`);
+
+// SEO descriptions in different languages
+const descriptionDE = "UX Designer in Zürich, die komplette Produkte mit AI entwickelt. Von Nutzerforschung bis zur funktionierenden Software mit Vibe Coding. 4+ Jahre UX Design Erfahrung, AI-Bewertungskompetenz. Verfügbar für Design-Rollen und Freelance-Projekte.";
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <link rel="canonical" href={fullCanonicalURL} />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Hreflang Tags for SEO -->
+    <link rel="alternate" hreflang="en" href={enURL} />
+    <link rel="alternate" hreflang="it" href={itURL} />
+    <link rel="alternate" hreflang="x-default" href={enURL} />
+
+    <!-- Primary Meta Tags -->
+    <title>{fullTitle}</title>
+    <meta name="title" content={fullTitle} />
+    <meta name="description" content={description} />
+
+    <!-- Multilingual SEO Meta Descriptions -->
+    {!isItalian && <meta name="description" lang="de" content={descriptionDE} />}
+
+    <meta name="keywords" content={isItalian ? "UX Designer Zurigo, UI Designer Svizzera, Vibe Coding, sviluppo assistito AI, ricerca UX, Product design, Design systems, Mobile-first design, AI Generativa, valutazione LLM, User experience design" : "UX Designer Zürich, UI Designer Switzerland, Vibe Coding, AI-powered design, UX research, Product design, Design systems, Mobile-first design, Generative AI, LLM evaluation, User experience design"} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={fullCanonicalURL} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={fullOgImage} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={fullCanonicalURL} />
+    <meta property="twitter:title" content={fullTitle} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={fullOgImage} />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Cristina Effendy",
+      "alternateName": "Cris",
+      "jobTitle": "UX Designer & AI Developer",
+      "description": "UX Designer based in Zürich specializing in Vibe Coding - combining user-centered design with AI-powered development",
+      "url": siteURL,
+      "email": "effe.christina@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Zürich",
+        "addressCountry": "CH"
+      },
+      "knowsAbout": [
+        "UX Design",
+        "UI Design",
+        "User Research",
+        "AI-assisted Development",
+        "Vibe Coding",
+        "Generative AI",
+        "LLM Evaluation",
+        "RLHF",
+        "Product Design",
+        "Design Systems",
+        "Mobile-First Design",
+        "Responsive Design"
+      ],
+      "alumniOf": "UX Design Agency",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Freelance"
+      }
+    })} />
+  </head>
+  <body class="bg-primary text-text-primary font-sans antialiased">
+    <Navigation />
+    <main class="pt-20">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

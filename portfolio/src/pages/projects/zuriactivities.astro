@@ -1,0 +1,208 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/Button.astro';
+---
+
+<Layout
+  title="ZuriActivities - Multilingual Community Platform"
+  description="Building a multilingual platform to help expats and locals discover activities, courses, and events in Zürich."
+>
+  <!-- Hero -->
+  <section class="px-6 md:px-20 py-32 md:py-40">
+    <div class="max-w-readable mx-auto">
+      <a href="/#work" class="inline-flex items-center text-body text-text-secondary mb-8">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Back to Work
+      </a>
+
+      <h1 class="text-h1-mobile md:text-h1 font-normal text-text-primary mb-6">
+        ZuriActivities
+      </h1>
+
+      <!-- Meta -->
+      <div class="flex flex-wrap gap-4 text-body-sm text-text-secondary mb-8">
+        <div>
+          <span class="font-medium text-text-primary">Type:</span> Web Application
+        </div>
+        <div>
+          <span class="font-medium text-text-primary">Year:</span> 2025
+        </div>
+        <div>
+          <span class="font-medium text-text-primary">Link:</span>
+          <a href="https://zuriactivities.com/" target="_blank" class="underline">zuriactivities.com</a>
+        </div>
+      </div>
+
+      <!-- Tags -->
+      <div class="flex flex-wrap gap-2">
+        <span class="text-caption text-text-secondary bg-secondary px-3 py-1.5 rounded-full border border-border">community</span>
+        <span class="text-caption text-text-secondary bg-secondary px-3 py-1.5 rounded-full border border-border">directory</span>
+        <span class="text-caption text-text-secondary bg-secondary px-3 py-1.5 rounded-full border border-border">Next.js</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <article class="px-6 md:px-20 py-20">
+    <div class="max-w-readable mx-auto">
+      <!-- Overview Section -->
+      <section class="mb-20">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div>
+            <h3 class="text-h4 font-semibold text-text-primary mb-4">The Challenge</h3>
+            <p class="text-body text-text-secondary leading-relaxed">
+              Thousands of expats arrive in Zürich yearly and struggle to integrate because most activities require German. Information about international language options is scattered across Facebook groups and word of mouth.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-h4 font-semibold text-text-primary mb-4">My Role</h3>
+            <p class="text-body text-text-secondary leading-relaxed">
+              Creator, product designer, full-stack developer, content curator
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-h4 font-semibold text-text-primary mb-4">The Solution</h3>
+            <p class="text-body text-text-secondary leading-relaxed">
+              A curated directory of activities in English and international languages (Italian, Spanish, French, Portuguese) - filling the gap while expats build their German skills.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Problem Section -->
+      <section class="mb-20">
+        <h2 class="text-h2-mobile md:text-h3 font-bold text-text-primary mb-8">The Problem</h2>
+
+        <p class="text-body-lg text-text-primary leading-relaxed mb-6">
+          Moving to Zürich is exciting - but it can also be isolating. When I arrived, I wanted to take courses, volunteer, and meet people. But finding accessible options in English or other languages I spoke was surprisingly difficult.
+        </p>
+
+        <p class="text-body text-text-secondary leading-relaxed mb-6">
+          Information was scattered across Facebook groups, random websites, and word of mouth. Most platforms assumed you spoke German fluently. Even when activities existed in English or other languages, they were hard to discover.
+        </p>
+
+        <div class="border-l-2 border-text-primary px-8 py-6 mb-8">
+          <p class="text-body font-semibold text-text-primary">
+            How might we help international residents discover activities in their languages - making connection possible while they build their German skills?
+          </p>
+        </div>
+
+        <p class="text-body text-text-secondary leading-relaxed">
+          Zürich already has excellent resources for German-language activities. What's missing is a dedicated space for the international community - those learning German but not fluent yet, or those who want to connect in other languages they speak.
+        </p>
+      </section>
+
+      <!-- Solution Section -->
+      <section class="mb-20">
+        <h2 class="text-h2-mobile md:text-h3 font-bold text-text-primary mb-8">The Solution</h2>
+
+        <p class="text-body-lg text-text-primary leading-relaxed mb-8">
+          ZüriActivities is the first directory dedicated to non-German activities in Zürich. It aggregates and curates activities in English, Italian, Spanish, French, Portuguese, and other international languages - from yoga courses to photography workshops, cultural events to volunteering opportunities.
+        </p>
+
+        <div class="space-y-8">
+          <div>
+            <h3 class="text-h4 font-semibold text-text-primary mb-4">Target Audience</h3>
+            <ul class="space-y-3 text-body text-text-secondary">
+              <li>New expats (first 6 months in Zürich)</li>
+              <li>International professionals</li>
+              <li>Students from international universities</li>
+              <li>Language communities (Italian, Spanish, French, Portuguese speakers)</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-h4 font-semibold text-text-primary mb-4">Key Features</h3>
+            <ul class="space-y-3 text-body text-text-secondary">
+              <li>Advanced filters: language, category, district (Kreis), price, format</li>
+              <li>Manually curated directory (quality over quantity)</li>
+              <li>Blog with practical guides for expats ("How to meet people", "Free activities", "Cooking courses")</li>
+              <li>Save favorites for quick access</li>
+              <li>Community-driven: users can submit activities</li>
+              <li>Mobile-first, SEO-optimized design</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-h4 font-semibold text-text-primary mb-4">Why No German?</h3>
+            <p class="text-body text-text-secondary leading-relaxed">
+              Zürich already has excellent resources for German-language activities. ZüriActivities focuses on filling the gap for international residents seeking opportunities in English and other international languages - making it easier to connect while building German skills.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-h4 font-semibold text-text-primary mb-4">Technical Stack</h3>
+            <ul class="space-y-3 text-body text-text-secondary">
+              <li>Next.js for fast, SEO-friendly pages</li>
+              <li>Advanced search and filtering system</li>
+              <li>GDPR-compliant data handling</li>
+              <li>Responsive design for mobile and desktop</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Impact Section -->
+      <section class="mb-20">
+        <h2 class="text-h2-mobile md:text-h3 font-bold text-text-primary mb-8">Impact & Learnings</h2>
+
+        <p class="text-body-lg text-text-primary leading-relaxed mb-6">
+          ZüriActivities started as a personal passion project born from my own experience as an expat. It demonstrates my ability to identify real user needs, build end-to-end solutions, and create products that serve underserved communities.
+        </p>
+
+        <div class="pt-8 border-t border-border">
+          <h3 class="text-h4 font-semibold text-text-primary mb-6">Key Takeaways</h3>
+          <div class="space-y-6">
+            <div class="border-l-2 border-text-tertiary px-8 py-6">
+              <h4 class="text-body font-semibold text-text-primary mb-3">Solve Your Own Problem</h4>
+              <p class="text-body text-text-secondary leading-relaxed">
+                The best products often come from personal pain points. Building for a problem I experienced firsthand gave me deep empathy for users and clear product direction.
+              </p>
+            </div>
+
+            <div class="border-l-2 border-text-tertiary px-8 py-6">
+              <h4 class="text-body font-semibold text-text-primary mb-3">Curation Over Automation</h4>
+              <p class="text-body text-text-secondary leading-relaxed">
+                Quality beats quantity. Manually reviewing each activity ensures relevance and builds trust with users - automation would sacrifice this quality.
+              </p>
+            </div>
+
+            <div class="border-l-2 border-text-tertiary px-8 py-6">
+              <h4 class="text-body font-semibold text-text-primary mb-3">Fill Gaps, Don't Compete</h4>
+              <p class="text-body text-text-secondary leading-relaxed">
+                Rather than competing with existing German-language platforms, I focused on the underserved international community. Finding white space creates more value than fighting for market share.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Closing -->
+      <div class="text-center">
+        <p class="text-body text-text-secondary italic mb-8">
+          A passion project that helps internationals connect, learn, and feel at home in Zürich - in languages they can comfortably communicate in.
+        </p>
+        <a
+          href="https://zuriactivities.com/"
+          target="_blank"
+          class="inline-block px-8 py-3 bg-accent text-white rounded transition-colors hover:bg-accent-dark"
+        >
+          Visit ZüriActivities →
+        </a>
+      </div>
+    </div>
+  </article>
+
+  <!-- Back to Work CTA -->
+  <section class="px-6 md:px-20 pb-24">
+    <div class="max-w-readable mx-auto text-center border-t border-border pt-16">
+      <Button href="/#work" variant="secondary" size="large">
+        ← Back to All Work
+      </Button>
+    </div>
+  </section>
+</Layout>

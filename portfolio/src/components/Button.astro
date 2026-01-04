@@ -1,0 +1,52 @@
+---
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'secondary' | 'ghost';
+  size?: 'default' | 'large';
+  external?: boolean;
+  class?: string;
+}
+
+const {
+  href,
+  variant = 'primary',
+  size = 'default',
+  external = false,
+  class: className = ''
+} = Astro.props;
+
+const baseClasses = 'inline-flex items-center justify-center font-medium transition-all duration-300 ease-out rounded';
+
+const variantClasses = {
+  primary: 'bg-accent text-white hover:bg-accent-dark',
+  secondary: 'bg-white text-text-primary border border-accent hover:border-accent-dark hover:bg-accent-subtle',
+  ghost: 'bg-transparent text-text-secondary hover:text-text-primary',
+};
+
+const sizeClasses = {
+  default: 'px-7 py-3.5 text-body-sm',
+  large: 'px-10 py-4 text-body',
+};
+
+const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
+
+const linkProps = external ? {
+  target: '_blank',
+  rel: 'noopener noreferrer'
+} : {};
+---
+
+{href ? (
+  <a href={href} class={classes} {...linkProps}>
+    <slot />
+    {external && (
+      <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+      </svg>
+    )}
+  </a>
+) : (
+  <button class={classes}>
+    <slot />
+  </button>
+)}

@@ -1,0 +1,139 @@
+---
+const navItems = [
+  { label: 'Work', href: '/#work', labelIt: 'Lavori' },
+  { label: 'About', href: '/#about', labelIt: 'Chi Sono' },
+  { label: 'Contact', href: '/#contact', labelIt: 'Contatti' },
+];
+
+const currentPath = Astro.url.pathname;
+const isItalian = currentPath.startsWith('/it');
+const currentLang = isItalian ? 'it' : 'en';
+---
+
+<nav class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50 border-b border-border-light transition-all duration-300" id="main-nav">
+  <div class="max-w-content mx-auto px-6 md:px-20">
+    <div class="flex items-center justify-between h-20">
+      <!-- Logo -->
+      <a href="/" class="hover:opacity-80 transition-opacity duration-300">
+        <img src="/logo.svg" alt="Cris" class="h-10 w-10" />
+      </a>
+
+      <!-- Desktop Navigation -->
+      <ul class="hidden md:flex items-center gap-10">
+        {navItems.map(item => (
+          <li>
+            <a
+              href={isItalian ? `/it${item.href}` : item.href}
+              class={`text-body-sm font-semibold hover:text-accent transition-all duration-300 relative pb-1 ${
+                currentPath === item.href ? 'text-accent after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-accent after:rounded-full' : 'text-text-secondary hover:text-text-primary'
+              }`}
+            >
+              {isItalian ? item.labelIt : item.label}
+            </a>
+          </li>
+        ))}
+        <!-- Language Switcher -->
+        <li class="flex items-center gap-2 border-l border-border pl-6">
+          <a
+            href={isItalian ? currentPath.replace('/it', '') || '/' : `/it${currentPath === '/' ? '' : currentPath}`}
+            class={`text-body-sm font-semibold transition-colors ${!isItalian ? 'text-accent' : 'text-text-secondary hover:text-text-primary'}`}
+            aria-label="English version"
+          >
+            EN
+          </a>
+          <span class="text-text-tertiary">/</span>
+          <a
+            href={isItalian ? currentPath : `/it${currentPath === '/' ? '' : currentPath}`}
+            class={`text-body-sm font-semibold transition-colors ${isItalian ? 'text-accent' : 'text-text-secondary hover:text-text-primary'}`}
+            aria-label="Versione italiana"
+          >
+            IT
+          </a>
+        </li>
+      </ul>
+
+      <!-- Mobile Menu Button -->
+      <button
+        class="md:hidden p-2 text-text-primary hover:text-accent transition-colors"
+        id="mobile-menu-button"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div
+    class="hidden md:hidden fixed inset-0 top-20 bg-primary z-40"
+    id="mobile-menu"
+  >
+    <ul class="flex flex-col items-center justify-center h-full gap-8">
+      {navItems.map(item => (
+        <li>
+          <a
+            href={isItalian ? `/it${item.href}` : item.href}
+            class="text-h3-mobile font-medium hover:text-accent transition-colors"
+          >
+            {isItalian ? item.labelIt : item.label}
+          </a>
+        </li>
+      ))}
+      <!-- Language Switcher Mobile -->
+      <li class="flex items-center gap-3 pt-6 border-t border-border">
+        <a
+          href={isItalian ? currentPath.replace('/it', '') || '/' : `/it${currentPath === '/' ? '' : currentPath}`}
+          class={`text-h4 font-semibold transition-colors ${!isItalian ? 'text-accent' : 'text-text-secondary'}`}
+        >
+          EN
+        </a>
+        <span class="text-text-tertiary text-h4">/</span>
+        <a
+          href={isItalian ? currentPath : `/it${currentPath === '/' ? '' : currentPath}`}
+          class={`text-h4 font-semibold transition-colors ${isItalian ? 'text-accent' : 'text-text-secondary'}`}
+        >
+          IT
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<script>
+  // Mobile menu toggle
+  const menuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  menuButton?.addEventListener('click', () => {
+    const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+    menuButton.setAttribute('aria-expanded', String(!isExpanded));
+    mobileMenu?.classList.toggle('hidden');
+  });
+
+  // Add shadow on scroll
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 0) {
+      nav?.classList.add('shadow-subtle');
+    } else {
+      nav?.classList.remove('shadow-subtle');
+    }
+  });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href') || '');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Close mobile menu if open
+        mobileMenu?.classList.add('hidden');
+        menuButton?.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+</script>

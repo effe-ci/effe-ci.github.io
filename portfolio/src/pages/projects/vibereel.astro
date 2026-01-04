@@ -1,0 +1,238 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/Button.astro';
+---
+
+<Layout
+  title="VibeReel - Mood-Based Movie Discovery"
+  description="Solving decision paralysis with a mood-first approach to discovering movies and TV shows from 1M+ titles."
+>
+  <!-- Hero -->
+  <section class="px-6 md:px-20 py-32 md:py-40">
+    <div class="max-w-readable mx-auto">
+      <a href="/#work" class="inline-flex items-center text-body text-text-secondary mb-8">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Back to Work
+      </a>
+
+      <h1 class="text-h1-mobile md:text-h1 font-normal text-text-primary mb-6">
+        VibeReel
+      </h1>
+
+      <!-- Meta -->
+      <div class="flex flex-wrap gap-4 text-body-sm text-text-secondary mb-8">
+        <div>
+          <span class="font-medium text-text-primary">Type:</span> Web Application
+        </div>
+        <div>
+          <span class="font-medium text-text-primary">Year:</span> 2026
+        </div>
+        <div>
+          <span class="font-medium text-text-primary">Link:</span>
+          <a href="https://vibe-reel.vercel.app/" target="_blank" class="underline">vibe-reel.vercel.app</a>
+        </div>
+      </div>
+
+      <!-- Tags -->
+      <div class="flex flex-wrap gap-2">
+        <span class="text-caption text-text-secondary bg-secondary px-3 py-1.5 rounded-full border border-border">AI</span>
+        <span class="text-caption text-text-secondary bg-secondary px-3 py-1.5 rounded-full border border-border">decision tool</span>
+        <span class="text-caption text-text-secondary bg-secondary px-3 py-1.5 rounded-full border border-border">React</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <article class="px-6 md:px-20 py-20">
+    <div class="max-w-readable mx-auto">
+      <!-- Overview Section -->
+      <section class="mb-20">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div>
+            <h3 class="text-h4 font-semibold text-text-primary mb-4">The Problem</h3>
+            <p class="text-body text-text-secondary leading-relaxed">
+              Endless scrolling through streaming platforms leads to decision paralysis. With millions of titles available, choosing what to watch becomes overwhelming and time-consuming.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-h4 font-semibold text-text-primary mb-4">My Role</h3>
+            <p class="text-body text-text-secondary leading-relaxed">
+              Product design, UX research, full-stack development, API integration, deployment
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-h4 font-semibold text-text-primary mb-4">The Solution</h3>
+            <p class="text-body text-text-secondary leading-relaxed">
+              A mood-first discovery tool that converts "what should I watch?" into "how do I feel?" - delivering 3 curated recommendations in seconds.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Problem Deep Dive -->
+      <section class="mb-20">
+        <h2 class="text-h2-mobile md:text-h3 font-bold text-text-primary mb-8">Decision Paralysis Is Real</h2>
+
+        <p class="text-body-lg text-text-primary leading-relaxed mb-6">
+          We've all been there: settling down to watch something, only to spend 30 minutes scrolling through endless options. The paradox of choice turns entertainment into a chore.
+        </p>
+
+        <div class="border-l-2 border-text-primary px-8 py-6 mb-8">
+          <p class="text-body font-semibold text-text-primary">
+            How might we help people quickly find content that matches their current mood, reducing decision friction and getting them to watching faster?
+          </p>
+        </div>
+
+        <p class="text-body text-text-secondary leading-relaxed">
+          Traditional recommendation systems focus on genres and algorithms. But when you sit down to watch, you're not thinking "I want a thriller" - you're thinking "I need something cozy" or "I want my mind blown."
+        </p>
+      </section>
+
+      <!-- Solution Section -->
+      <section class="mb-20">
+        <h2 class="text-h2-mobile md:text-h3 font-bold text-text-primary mb-8">A Mood-First Approach</h2>
+
+        <p class="text-body-lg text-text-primary leading-relaxed mb-8">
+          VibeReel flips the script. Instead of browsing by genre, users select their mood first. The app then delivers 3 curated recommendations from 1M+ movies and shows, getting users to content in under 30 seconds.
+        </p>
+
+        <div class="space-y-12">
+          <!-- User Flow -->
+          <div>
+            <h3 class="text-h4 font-semibold text-text-primary mb-6">Simple Three-Step Flow</h3>
+            <div class="space-y-4">
+              <div class="border-l-2 border-text-tertiary px-6 py-4 bg-secondary">
+                <p class="text-body font-semibold text-text-primary mb-2">1. Select Your Vibe</p>
+                <p class="text-body-sm text-text-secondary">Choose from 9 mood options like "Cozy Feel-good", "Mind Games", or "Can't Stop Watching"</p>
+              </div>
+              <div class="border-l-2 border-text-tertiary px-6 py-4 bg-secondary">
+                <p class="text-body font-semibold text-text-primary mb-2">2. Pick Format</p>
+                <p class="text-body-sm text-text-secondary">Movie or TV series - your choice</p>
+              </div>
+              <div class="border-l-2 border-text-tertiary px-6 py-4 bg-secondary">
+                <p class="text-body font-semibold text-text-primary mb-2">3. Get Recommendations</p>
+                <p class="text-body-sm text-text-secondary">Receive 3 curated picks instantly</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Key Features -->
+          <div>
+            <h3 class="text-h4 font-semibold text-text-primary mb-6">Key Features</h3>
+            <ul class="space-y-3 text-body text-text-secondary">
+              <li>Mood-based discovery (9 vibe options)</li>
+              <li>Advanced filters (genre, year, rating, runtime, country, language)</li>
+              <li>Local watchlist and history (no signup required)</li>
+              <li>Share recommendations via social media or email</li>
+              <li>Privacy-first: all data saved locally</li>
+              <li>Mobile-optimized interface</li>
+            </ul>
+          </div>
+
+          <!-- Technical Implementation -->
+          <div>
+            <h3 class="text-h4 font-semibold text-text-primary mb-6">Technical Highlights</h3>
+            <ul class="space-y-3 text-body text-text-secondary">
+              <li>Built with React and modern web technologies</li>
+              <li>TMDB API integration for 1M+ titles</li>
+              <li>Custom filtering logic for mood-based recommendations</li>
+              <li>LocalStorage for privacy-preserving watchlist</li>
+              <li>Responsive design optimized for mobile</li>
+              <li>Deployed on Vercel for fast global access</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Design Decisions Section -->
+      <section class="mb-20">
+        <h2 class="text-h2-mobile md:text-h3 font-bold text-text-primary mb-8">Key Design Decisions</h2>
+
+        <div class="space-y-8">
+          <div class="border-b border-border pb-8">
+            <h3 class="text-h4 font-semibold text-text-primary mb-4">1. Emoji-First Interface</h3>
+            <p class="text-body text-text-secondary leading-relaxed">
+              Using emoji for mood selection makes the experience playful and universal. Visual cues reduce cognitive load and make choices intuitive.
+            </p>
+          </div>
+
+          <div class="border-b border-border pb-8">
+            <h3 class="text-h4 font-semibold text-text-primary mb-4">2. Zero Signup Required</h3>
+            <p class="text-body text-text-secondary leading-relaxed">
+              By storing data locally, users get full functionality without creating accounts. This removes friction and respects privacy.
+            </p>
+          </div>
+
+          <div class="border-b border-border pb-8">
+            <h3 class="text-h4 font-semibold text-text-primary mb-4">3. Three Recommendations Only</h3>
+            <p class="text-body text-text-secondary leading-relaxed">
+              Limiting results to 3 prevents choice overload. Users can refine and search again if needed, but the default keeps decisions simple.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Impact Section -->
+      <section class="mb-20">
+        <h2 class="text-h2-mobile md:text-h3 font-bold text-text-primary mb-8">Impact & Learnings</h2>
+
+        <p class="text-body-lg text-text-primary leading-relaxed mb-8">
+          VibeReel demonstrates my ability to identify user pain points, design thoughtful solutions, and execute full-stack implementations. The project showcases end-to-end product thinking.
+        </p>
+
+        <div class="pt-8 border-t border-border">
+          <h3 class="text-h4 font-semibold text-text-primary mb-6">Key Takeaways</h3>
+          <div class="space-y-6">
+            <div class="border-l-2 border-text-tertiary px-8 py-6">
+              <h4 class="text-body font-semibold text-text-primary mb-3">Reframe the Question</h4>
+              <p class="text-body text-text-secondary leading-relaxed">
+                Sometimes solving a problem means changing the question. "What genre?" became "How do you feel?" - a more natural starting point.
+              </p>
+            </div>
+
+            <div class="border-l-2 border-text-tertiary px-8 py-6">
+              <h4 class="text-body font-semibold text-text-primary mb-3">Less Is More</h4>
+              <p class="text-body text-text-secondary leading-relaxed">
+                Constraints drive clarity. Limiting to 3 recommendations forces quality over quantity and reduces decision fatigue.
+              </p>
+            </div>
+
+            <div class="border-l-2 border-text-tertiary px-8 py-6">
+              <h4 class="text-body font-semibold text-text-primary mb-3">Privacy as a Feature</h4>
+              <p class="text-body text-text-secondary leading-relaxed">
+                No signup doesn't mean no functionality. Local storage enabled full features while respecting user privacy.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Closing -->
+      <div class="text-center">
+        <p class="text-body text-text-secondary italic mb-8">
+          This project showcases my ability to design and build complete digital products that solve real user problems.
+        </p>
+        <a
+          href="https://vibe-reel.vercel.app/"
+          target="_blank"
+          class="inline-block px-8 py-3 bg-accent text-white rounded transition-colors hover:bg-accent-dark"
+        >
+          Try VibeReel →
+        </a>
+      </div>
+    </div>
+  </article>
+
+  <!-- Back to Work CTA -->
+  <section class="px-6 md:px-20 pb-24">
+    <div class="max-w-readable mx-auto text-center border-t border-border pt-16">
+      <Button href="/#work" variant="secondary" size="large">
+        ← Back to All Work
+      </Button>
+    </div>
+  </section>
+</Layout>
