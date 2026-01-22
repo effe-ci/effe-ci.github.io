@@ -114,6 +114,19 @@ const descriptionDE = "UX Designer in Zürich, die UX-Expertise mit AI kombinier
         "name": "Freelance"
       }
     })} />
+
+    <!-- Password Protection -->
+    <script is:inline>
+      // Skip auth check on login page
+      if (!window.location.pathname.includes('/login')) {
+        // Check if user is authenticated
+        if (sessionStorage.getItem('authenticated') !== 'true') {
+          // Redirect to login page with return URL
+          const returnUrl = encodeURIComponent(window.location.pathname + window.location.search);
+          window.location.href = '/login?return=' + returnUrl;
+        }
+      }
+    </script>
   </head>
   <body class="bg-primary text-text-primary font-sans antialiased">
     <Navigation />

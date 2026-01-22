@@ -50,6 +50,19 @@ const currentLang = isItalian ? 'it' : 'en';
             IT
           </a>
         </li>
+        <!-- Logout Button -->
+        <li>
+          <button
+            id="logout-btn"
+            class="text-body-sm font-medium text-text-secondary hover:text-red-600 transition-colors flex items-center gap-1"
+            aria-label="Logout"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+            </svg>
+            Logout
+          </button>
+        </li>
       </ul>
 
       <!-- Mobile Menu Button -->
@@ -98,6 +111,18 @@ const currentLang = isItalian ? 'it' : 'en';
           IT
         </a>
       </li>
+      <!-- Logout Button Mobile -->
+      <li class="pt-4">
+        <button
+          id="logout-btn-mobile"
+          class="text-h4 font-medium text-text-secondary hover:text-red-600 transition-colors flex items-center gap-2"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+          </svg>
+          Logout
+        </button>
+      </li>
     </ul>
   </div>
 </nav>
@@ -136,4 +161,16 @@ const currentLang = isItalian ? 'it' : 'en';
       }
     });
   });
+
+  // Logout functionality
+  const logoutBtn = document.getElementById('logout-btn');
+  const logoutBtnMobile = document.getElementById('logout-btn-mobile');
+
+  function handleLogout() {
+    sessionStorage.removeItem('authenticated');
+    window.location.href = '/login';
+  }
+
+  logoutBtn?.addEventListener('click', handleLogout);
+  logoutBtnMobile?.addEventListener('click', handleLogout);
 </script>
