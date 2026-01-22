@@ -24,8 +24,8 @@ const currentLang = isItalian ? 'it' : 'en';
           <li>
             <a
               href={isItalian ? `/it${item.href}` : item.href}
-              class={`text-body-sm font-semibold hover:text-accent transition-all duration-300 relative pb-1 ${
-                currentPath === item.href ? 'text-accent after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-accent after:rounded-full' : 'text-text-secondary hover:text-text-primary'
+              class={`text-body-sm font-medium hover:text-accent transition-all duration-300 relative pb-1 ${
+                currentPath === item.href ? 'text-accent after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-accent after:rounded-full' : 'text-gray-700'
               }`}
             >
               {isItalian ? item.labelIt : item.label}
@@ -36,7 +36,7 @@ const currentLang = isItalian ? 'it' : 'en';
         <li class="flex items-center gap-2 border-l border-border pl-6">
           <a
             href={isItalian ? currentPath.replace('/it', '') || '/' : `/it${currentPath === '/' ? '' : currentPath}`}
-            class={`text-body-sm font-semibold transition-colors ${!isItalian ? 'text-accent' : 'text-text-secondary hover:text-text-primary'}`}
+            class={`text-body-sm font-semibold transition-colors ${!isItalian ? 'text-accent' : 'text-text-secondary hover:text-[#0E7490]'}`}
             aria-label="English version"
           >
             EN
@@ -44,7 +44,7 @@ const currentLang = isItalian ? 'it' : 'en';
           <span class="text-text-tertiary">/</span>
           <a
             href={isItalian ? currentPath : `/it${currentPath === '/' ? '' : currentPath}`}
-            class={`text-body-sm font-semibold transition-colors ${isItalian ? 'text-accent' : 'text-text-secondary hover:text-text-primary'}`}
+            class={`text-body-sm font-semibold transition-colors ${isItalian ? 'text-accent' : 'text-text-secondary hover:text-[#0E7490]'}`}
             aria-label="Versione italiana"
           >
             IT
@@ -76,7 +76,7 @@ const currentLang = isItalian ? 'it' : 'en';
         <li>
           <a
             href={isItalian ? `/it${item.href}` : item.href}
-            class="text-h3-mobile font-medium hover:text-accent transition-colors"
+            class="text-h3-mobile font-medium text-gray-700 hover:text-accent transition-colors"
           >
             {isItalian ? item.labelIt : item.label}
           </a>
